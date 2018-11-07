@@ -217,3 +217,4 @@ var listener = app.listen(process.env.PORT || 3000, function() {
 });
 
 var helmetJs = require('helmet')
+app.use(helmetJs())
