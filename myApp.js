@@ -1,15 +1,15 @@
 /**********************************************
-* 4. Applied InfoSec Challenges
-* =============================
-***********************************************/
+ * 4. Applied InfoSec Challenges
+ * =============================
+ ***********************************************/
 
 var express = require('express'); // Do Not Edit
-var app = express();              // Do Not Edit
+var app = express(); // Do Not Edit
 
 // ----
 
 /** - Challenges - *
-********************/ 
+ ********************/
 
 /** 1) Install and require `helmet` */
 
@@ -46,7 +46,7 @@ var app = express();              // Do Not Edit
 // We don't need our app to be framed, so you should use `helmet.frameguard()`
 // passing to it the configuration object `{action: 'deny'}`
 
- 
+
 
 /** 4) Mitigate the risk of XSS - `helmet.xssFilter()` */
 
@@ -113,7 +113,7 @@ var app = express();              // Do Not Edit
 // set the field `force` to `true` in the config object. To not alter hyperdev security 
 // policy we will intercept and restore the header, after inspecting it for testing.
 
-var ninetyDaysInMilliseconds = 90*24*60*60*1000;
+var ninetyDaysInMilliseconds = 90 * 24 * 60 * 60 * 1000;
 
 
 //**Note**:
@@ -177,7 +177,7 @@ var ninetyDaysInMilliseconds = 90*24*60*60*1000;
 
 
 
-/** TIP: */ 
+/** TIP: */
 
 // `app.use(helmet())` will automatically include all the middleware
 // presented above, except `noCache()`, and `contentSecurityPolicy()`,
@@ -209,9 +209,11 @@ var api = require('./server.js');
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+app.get("/", function(request, response) {
+    response.sendFile(__dirname + '/views/index.html');
 });
-var listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+var listener = app.listen(process.env.PORT || 3000, function() {
+    console.log('Your app is listening on port ' + listener.address().port);
 });
+
+var helmetJs = require('helmet')
